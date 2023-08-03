@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <button id="myButton" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 6.25%; height: 6.25%; transition: width 0.5s, height 0.5s">Click me!</button>
+    <p id="myLabel" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 200%;"></p>
+    <script>
+      var myButton = document.getElementById("myButton");
+      var myLabel = document.getElementById("myLabel");
+      var words = ["apple", "banana", "orange", "grape", "strawberry"];
+      var colors = ["red", "green", "blue", "purple", "pink"];
+
+      myButton.addEventListener("mousedown", function() {
+        myButton.style.width = "100%";
+        myButton.style.height = "100%";
+      });
+
+      myButton.addEventListener("mouseup", function() {
+        myButton.style.width = "200%";
+        myButton.style.height = "200%";
+      });
+
+      myButton.addEventListener("click", function() {
+        var randomWord = words[Math.floor(Math.random() * words.length)];
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
+        myLabel.innerHTML = randomWord;
+        document.body.style.backgroundColor = randomColor;
+      });
+    </script>
+  </body>
+</html>
