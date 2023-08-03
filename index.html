@@ -1,36 +1,29 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Scaling Button</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+  <body>
+    <button id="myButton" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 6.25%; height: 6.25%; transition: width 0.5s, height 0.5s">Click me!</button>
+    <p id="myLabel" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 200%;"></p>
+    <script>
+      var myButton = document.getElementById("myButton");
+      var myLabel = document.getElementById("myLabel");
+      var words = ["1", "2", "3", "4", "5"];
+      var colors = ["red", "green", "blue", "purple", "pink"];
 
-    .scaling-button {
-      padding: 20px;
-      font-size: 16px;
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease-in-out;
-    }
+      myButton.addEventListener("mousedown", function() {
+        myButton.style.width = "100%";
+        myButton.style.height = "100%";
+      });
 
-    .scaling-button:hover {
-      transform: scale(1.15);
-    }
+      myButton.addEventListener("mouseup", function() {
+        myButton.style.width = "200%";
+        myButton.style.height = "200%";
+      });
 
-    .scaling-button:active {
-      transform: scale(0.85);
-    }
-  </style>
-</head>
-<body>
-  <button class="scaling-button" onclick="event.stopPropagation();">Click Me!</button>
-</body>
+      myButton.addEventListener("click", function() {
+        var randomWord = words[Math.floor(Math.random() * words.length)];
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
+        myLabel.innerHTML = randomWord;
+        document.body.style.backgroundColor = randomColor;
+      });
+    </script>
+  </body>
 </html>
